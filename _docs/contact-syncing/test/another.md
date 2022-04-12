@@ -1,7 +1,7 @@
 ---
 title: Subcategory
 category: Contact Syncing
-order: 2
+order: 3
 ---
 
 Another subcategory
