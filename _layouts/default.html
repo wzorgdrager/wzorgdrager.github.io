@@ -53,7 +53,14 @@
 							<a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
 							<ul>
 								{% for item in items %}
-									<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+									<li class="nav-item {% if item.url == page.url %}current{% endif %}">
+										<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+										{% if site.toc.enabled %}
+                                							{% if page.url == post.url %}
+                                    								{% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
+                                							{% endif %}
+                            							{% endif %}
+									</li>
 								{% endfor %}
 							</ul>
 						</li>
@@ -75,7 +82,7 @@
 				<h3>{{ page.title }}</h3>
 			</div>
 			<article class="content">
-				{{ content | toc }}
+				{{ content }}
 			</article>
 		</section>
 
